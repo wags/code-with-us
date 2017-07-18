@@ -19,7 +19,8 @@ import { Component } from '@angular/core';
       <input [ngModel]="name" (ngModelChange)="name=$event"><br>
     </fieldset>
 
-    <button (click)="addressClick()">Show/Hide Address</button>
+    <label><input type="checkbox" [(ngModel)]="hideAddress"> Hide Address</label>
+
     <div [hidden]="hideAddress">
       <h3>Address:</h3>
       <fieldset>
