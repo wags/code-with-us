@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'my-app', // to use me, do this in html <my-app>
   template: `
     <h1>{{name}}</h1>
-    <p><i>{{name}} is in the {{region}} region.</i></p>
+    <p><i>{{name}} is at {{street}} in {{city}} in the {{region}} region.</i></p>
     <br>
 
     <fieldset>
@@ -16,15 +16,15 @@ import { Component } from '@angular/core';
     <div [hidden]="hideAddress">
       <h3>Address:</h3>
       <fieldset>
-        <label>Street: </label>{{street}}
+        <label>Street: <input [(ngModel)]="street"></label>
       </fieldset>
       <fieldset>
-        <label>City: </label>{{city}}
+        <label>City: <input [(ngModel)]="city"></label>
       </fieldset>
       <fieldset>
         <label>
           Region:
-          <select (change)="regionChange($event.target.value)">
+          <select [(ngModel)]="region">
             <option>North</option>
             <option>South</option>
             <option>East</option>
@@ -41,12 +41,4 @@ export class AppComponent {
   city = 'Auburn';
   region = 'East';
   hideAddress = false;
-
-  addressClick() {
-    this.hideAddress = !this.hideAddress;
-  }
-
-  regionChange(region: string) {
-    this.region = region;
-  }
 }
