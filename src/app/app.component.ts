@@ -8,15 +8,7 @@ import { Component } from '@angular/core';
     <br>
 
     <fieldset>
-      <label>Name:</label><br>
-      <input [value]="name"><br>
-      <input [value]="name" (input)="name=$event.target.value"><br>
-      <input [value]="name" (keyup)="name=$event.target.value"><br>
-      <input [value]="name" (keyup.enter)="name=$event.target.value"><br>
-      <input [value]="name" (keyup.enter)="name=$event.target.value"
-                            (blur)="name=$event.target.value"><br>
-      <input [(ngModel)]="name"><br>
-      <input [ngModel]="name" (ngModelChange)="name=$event"><br>
+      <label>Name: <input [(ngModel)]="name"></label>
     </fieldset>
 
     <label><input type="checkbox" [(ngModel)]="hideAddress"> Hide Address</label>
