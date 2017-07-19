@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Customer } from '../model';
+
 @Component({
   selector: 'my-app', // to use me, do this in html <my-app>
   template: `
@@ -36,9 +38,16 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
-  name = 'Alex Smith';
-  street = '1503 Clark Street Rd';
-  city = 'Auburn';
-  region = 'East';
+  customer: Customer = {
+    id: 1,
+    name: 'Alex Smith',
+    address: {
+      street: '1503 Clark Street Rd',
+      city: 'Auburn',
+      state: 'NY',
+      region: 'East',
+    }
+  };
+
   hideAddress = false;
 }
