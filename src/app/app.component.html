@@ -2,7 +2,7 @@
 <div>
   <!--list is here-->
   <ul>
-    <li *ngFor="let cust of customers" (click)="customer=cust">{{cust.name}}</li>
+    <li *ngFor="let cust of customers" [ngClass]="{selected: customer===cust}" (click)="customer=cust">{{cust.name}}</li>
   </ul>
 
   <!--details begin here-->
