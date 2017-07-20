@@ -9,6 +9,7 @@ import { Customer } from '../model';
 })
 export class AppComponent {
   regions = ['North', 'East', 'South', 'West', 'Midwest'];
+  states = ['California', 'Illinois', 'Jalisco', 'New York', 'Quebec'];
 
   customers: Customer[] = [
     {

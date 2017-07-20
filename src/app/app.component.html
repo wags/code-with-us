@@ -31,12 +31,8 @@
       <fieldset>
         <label>State:</label>
         <select [(ngModel)]="customer.address.state">
-        <option>California</option>
-        <option>New York</option>
-        <option>Jalisco</option>
-        <option>Quebec</option>
-        <option>Illinois</option>
-      </select>
+          <option *ngFor="let state of states">{{state}}</option>
+        </select>
       </fieldset>
       <fieldset>
         <label>Region:</label>
