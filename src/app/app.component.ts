@@ -8,6 +8,8 @@ import { Customer } from '../model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  regions = ['north', 'east', 'south', 'west', 'midwest'];
+
   customer: Customer = {
     id: 1,
     name: 'Alex Smith',
@@ -15,7 +17,7 @@ export class AppComponent {
       street: '1503 Clark Street Rd',
       city: 'Auburn',
       state: 'New York',
-      region: 'East',
+      region: 'east',
     }
   };
 

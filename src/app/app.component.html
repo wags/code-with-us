@@ -30,14 +30,9 @@
         </label>
   </fieldset>
   <fieldset>
-    <label>
-          Region:
-          <select [(ngModel)]="customer.address.region">
-            <option>North</option>
-            <option>South</option>
-            <option>East</option>
-            <option>West</option>
-          </select>
-        </label>
+    <label>Region:</label>
+    <select [(ngModel)]="customer.address.region">
+      <option *ngFor="let region of regions">{{region}}</option>
+    </select>
   </fieldset>
 </div>
