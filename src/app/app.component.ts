@@ -56,5 +56,5 @@ export class AppComponent {
 
   customer: Customer;
 
-  hideAddress = false;
+  showAddress = true;
 }
