@@ -53,7 +53,7 @@ export class AppComponent {
     },
   ];
 
-  customer: Customer = this.customers[0];
+  customer: Customer;
 
   hideAddress = false;
 }
