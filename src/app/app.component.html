@@ -1,25 +1,33 @@
-<h1>{{customer.name}}</h1>
-<p><i>{{customer.name}} is at {{customer.address.street}} in {{customer.address.city}}
+<h1>Customers</h1>
+<div>
+  <!--list is here-->
+  <ul>
+    <li *ngFor="let cust of customers" (click)="customer=cust">{{cust.name}}</li>
+  </ul>
+
+  <!--details begin here-->
+  <h1>{{customer.name}}</h1>
+  <p><i>{{customer.name}} is at {{customer.address.street}} in {{customer.address.city}}
       {{customer.address.state}} in the
       {{customer.address.region}} region.</i></p>
-<br>
+  <br>
 
-<fieldset>
-  <label>Name: <input [(ngModel)]="customer.name"></label>
-</fieldset>
-
-<label><input type="checkbox" [(ngModel)]="hideAddress"> Hide Address</label>
-
-<div [hidden]="hideAddress">
-  <h3>Address:</h3>
   <fieldset>
-    <label>Street: <input [(ngModel)]="customer.address.street"></label>
+    <label>Name: <input [(ngModel)]="customer.name"></label>
   </fieldset>
-  <fieldset>
-    <label>City: <input [(ngModel)]="customer.address.city"></label>
-  </fieldset>
-  <fieldset>
-    <label>
+
+  <label><input type="checkbox" [(ngModel)]="hideAddress"> Hide Address</label>
+
+  <div [hidden]="hideAddress">
+    <h3>Address:</h3>
+    <fieldset>
+      <label>Street: <input [(ngModel)]="customer.address.street"></label>
+    </fieldset>
+    <fieldset>
+      <label>City: <input [(ngModel)]="customer.address.city"></label>
+    </fieldset>
+    <fieldset>
+      <label>
           State:
           <select [(ngModel)]="customer.address.state">
             <option>California</option>
@@ -28,11 +36,12 @@
             <option>Quebec</option>
           </select>
         </label>
-  </fieldset>
-  <fieldset>
-    <label>Region:</label>
-    <select [(ngModel)]="customer.address.region">
+    </fieldset>
+    <fieldset>
+      <label>Region:</label>
+      <select [(ngModel)]="customer.address.region">
       <option *ngFor="let region of regions">{{region}}</option>
     </select>
-  </fieldset>
+    </fieldset>
+  </div>
 </div>
