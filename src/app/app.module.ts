@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerDetailComponent } from './customer-detail.component';
 import { AddressComponent } from './address.component';
+import { DataService } from './data.service';
 
 // This describes the class that follows it
 @NgModule({
@@ -16,6 +17,7 @@ import { AddressComponent } from './address.component';
     CustomerDetailComponent,
     CustomerListComponent
   ], // what things are in my app?
+  providers: [DataService],
   bootstrap: [AppComponent] // where do I start?
 })
 export class AppModule { }
