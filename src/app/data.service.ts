@@ -8,7 +8,7 @@ import { Customer } from './model';
 export class DataService {
   constructor(private loggerService: LoggerService) { }
 
-  getCustomers() {
+  getCustomersP() {
     this.loggerService.log(`Getting customers as a Promise ...`);
     const customers = createTestCustomers();
 
