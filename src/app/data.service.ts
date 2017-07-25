@@ -12,7 +12,7 @@ import { Customer } from './model';
 
 @Injectable()
 export class DataService {
-  private customersUrl = 'api/customers';
+  private customersUrl = 'api/customersx';
 
   constructor(
     private loggerService: LoggerService,
