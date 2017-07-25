@@ -9,9 +9,16 @@ import { AddressComponent } from './address.component';
 import { DataService } from './data.service';
 import { LoggerService } from './logger.service';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 // This describes the class that follows it
 @NgModule({
-  imports: [BrowserModule, FormsModule], // what stuff do I need?
+  imports: [
+    BrowserModule,
+    FormsModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
+  ], // what stuff do I need?
   declarations: [
     AppComponent,
     AddressComponent,
