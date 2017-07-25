@@ -14,6 +14,7 @@ import { Customer } from './model';
 @Injectable()
 export class DataService {
   private customersUrl = 'api/customers';
+  private statesUrl = 'api/states';
 
   constructor(
     private loggerService: LoggerService,
@@ -44,6 +45,16 @@ export class DataService {
       .map(response => response.json().data as Customer[])
       .do((custs) => {
         this.loggerService.log(`Got ${custs.length} customers`);
+      });
+  }
+
+  getStates(): Observable<string[]> {
+    this.loggerService.log(`Getting states as an Observable via Http ...`);
+
+    return this.http.get(this.statesUrl)
+      .map(response => response.json().data as string[])
+      .do((states) => {
+        this.loggerService.log(`Got ${states.length} states`);
       });
   }
 }
