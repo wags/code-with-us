@@ -34,13 +34,6 @@ export class DataService {
         return Promise.reject('Something bad happened. Please check the console.');
       }
       );
-
-    // return new Promise<Customer[]>(resolve => {
-    //   setTimeout(() => {
-    //     this.loggerService.log(`Got ${customers.length} customers`);
-    //     resolve(customers);
-    //   }, 1500);
-    // });
   }
 
   getCustomers(): Observable<Customer[]> {
