@@ -6,6 +6,8 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/Observable/throw';
 
 import { createTestCustomers } from './test-data';
 import { LoggerService } from './logger.service';
@@ -45,6 +47,10 @@ export class DataService {
       .map(response => response.json().data as Customer[])
       .do((custs) => {
         this.loggerService.log(`Got ${custs.length} customers`);
+      })
+      .catch((error: any) => {
+        this.loggerService.log(`Error occurred: ${error}`);
+        return Observable.throw('Something bad happened in getting customers. Please check the console.');
       });
   }
 
@@ -55,6 +61,10 @@ export class DataService {
       .map(response => response.json().data as string[])
       .do((states) => {
         this.loggerService.log(`Got ${states.length} states`);
+      })
+      .catch((error: any) => {
+        this.loggerService.log(`Error occurred: ${error}`);
+        return Observable.throw('Something bad happened in getting states. Please check the console.');
       });
   }
 }
