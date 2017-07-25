@@ -5,6 +5,7 @@ import { of } from 'rxjs/Observable/of';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 import { createTestCustomers } from './test-data';
 import { LoggerService } from './logger.service';
@@ -37,13 +38,12 @@ export class DataService {
   }
 
   getCustomers(): Observable<Customer[]> {
-    this.loggerService.log(`Getting customers as an Observable ...`);
-    const customers = createTestCustomers();
+    this.loggerService.log(`Getting customers as an Observable via Http ...`);
 
-    return of(customers)
-      .delay(1500)
-      .do(() => {
-        this.loggerService.log(`Got ${customers.length} customers`);
+    return this.http.get(this.customersUrl)
+      .map(response => response.json().data as Customer[])
+      .do((custs) => {
+        this.loggerService.log(`Got ${custs.length} customers`);
       });
   }
 }
